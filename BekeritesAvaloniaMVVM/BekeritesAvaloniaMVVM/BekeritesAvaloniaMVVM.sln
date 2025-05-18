@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BekeritesAvaloniaMVVM", "BekeritesAvaloniaMVVM\BekeritesAvaloniaMVVM.csproj", "{A10F6601-4C64-46CD-879F-8AB1BE00FD74}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BekeritesAvaloniaMVVM.Android", "BekeritesAvaloniaMVVM.Android\BekeritesAvaloniaMVVM.Android.csproj", "{1F242E5A-056C-42D3-B6D6-C49834A78B32}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BekeritesAvaloniaMVVM.Desktop", "BekeritesAvaloniaMVVM.Desktop\BekeritesAvaloniaMVVM.Desktop.csproj", "{1658BE3D-DD86-47EC-AE51-80C588FB228A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameMechanicsMsTest", "..\GameMechanicsMsTest\GameMechanicsMsTest.csproj", "{23113FA7-6FD2-4A24-B76B-DA762DD6DD75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameMechanics", "GameMechanics\GameMechanics.csproj", "{1AC56E65-B9B7-4B06-867E-A86B0E8CF6D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A10F6601-4C64-46CD-879F-8AB1BE00FD74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A10F6601-4C64-46CD-879F-8AB1BE00FD74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A10F6601-4C64-46CD-879F-8AB1BE00FD74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A10F6601-4C64-46CD-879F-8AB1BE00FD74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F242E5A-056C-42D3-B6D6-C49834A78B32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F242E5A-056C-42D3-B6D6-C49834A78B32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F242E5A-056C-42D3-B6D6-C49834A78B32}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1F242E5A-056C-42D3-B6D6-C49834A78B32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F242E5A-056C-42D3-B6D6-C49834A78B32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F242E5A-056C-42D3-B6D6-C49834A78B32}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1658BE3D-DD86-47EC-AE51-80C588FB228A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1658BE3D-DD86-47EC-AE51-80C588FB228A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1658BE3D-DD86-47EC-AE51-80C588FB228A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1658BE3D-DD86-47EC-AE51-80C588FB228A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23113FA7-6FD2-4A24-B76B-DA762DD6DD75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23113FA7-6FD2-4A24-B76B-DA762DD6DD75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23113FA7-6FD2-4A24-B76B-DA762DD6DD75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23113FA7-6FD2-4A24-B76B-DA762DD6DD75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AC56E65-B9B7-4B06-867E-A86B0E8CF6D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AC56E65-B9B7-4B06-867E-A86B0E8CF6D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AC56E65-B9B7-4B06-867E-A86B0E8CF6D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AC56E65-B9B7-4B06-867E-A86B0E8CF6D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0AC7BAC4-9B01-4E46-B25D-43CA6D3523A3}
+	EndGlobalSection
+EndGlobal

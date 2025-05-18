@@ -1,0 +1,121 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:vm="clr-namespace:BekeritesAvaloniaMVVM.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="600"
+             x:Class="BekeritesAvaloniaMVVM.Views.MainView"
+             x:DataType="vm:MainViewModel"
+			 d:DataContext="{x:Static v:DesignData.ViewModel}">
+  <Design.DataContext>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    <vm:MainViewModel x:Key="MainViewModel" />
+  </Design.DataContext>
+	<DockPanel>
+		<DockPanel DockPanel.Dock="Top">
+			<!-- Player data section -->
+			<Viewbox MaxWidth="300" MaxHeight="250">
+				<StackPanel Orientation="Vertical">
+					<!-- Player Color Settings -->
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top">
+						<StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
+							<TextBlock Text="Player One Color" Height="30" HorizontalAlignment="Center"/>
+							<ComboBox x:Name="PlayerOneColorPanel" ItemsSource="{Binding ColorPalette}"
+									  SelectedItem="{Binding PlayerOneColor, Mode=TwoWay}"
+									  SelectedIndex="0"
+									  IsEnabled="{Binding IsPlayerInputEnabled}"
+									  Margin="5" Height="30" HorizontalAlignment="Center"/>
+						</StackPanel>
+						<StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
+							<TextBlock Text="Player Two Color" Height="30" HorizontalAlignment="Center"/>
+							<ComboBox x:Name="PlayerTwoColorPanel" ItemsSource="{Binding ColorPalette}"
+									  SelectedItem="{Binding PlayerTwoColor, Mode=TwoWay}"
+									  SelectedIndex="0"
+									  IsEnabled="{Binding IsPlayerInputEnabled}"
+									  Margin="5" Height="30" HorizontalAlignment="Center"/>
+						</StackPanel>
+					</StackPanel>
+
+					<!-- Table Settings -->
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top">
+						<StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" DockPanel.Dock="Top">
+							<Button Command="{Binding AddPlayerCommand}"
+									Content="Add Players"
+									Width="100" Margin="5"
+									IsEnabled="{Binding IsPlayerInputEnabled}"
+									Height="30" HorizontalAlignment="Center"/>
+						</StackPanel>
+						<StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" DockPanel.Dock="Top">
+							<ComboBox SelectedIndex="0"
+									  SelectedItem="{Binding RadioSize}"
+									  Margin="5" Height="30" 
+									  HorizontalAlignment="Center">
+								<ComboBox.Items>
+									<sys:String>6X6</sys:String>
+									<sys:String>8X8</sys:String>
+									<sys:String>10X10</sys:String>
+								</ComboBox.Items>
+							</ComboBox>
+						</StackPanel>
+					</StackPanel>
+
+					<!-- Game starter buttons -->
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" DockPanel.Dock="Bottom">
+						<Button Content="Start Game" Command="{Binding StartGame}" Width="100" Margin="5" HorizontalAlignment="Center"/>
+						<Button Content="Load Game" Command="{Binding LoadGameCommand}" Width="100" Margin="5" HorizontalAlignment="Center"/>
+						<Button Content="Save Game" Command="{Binding SaveGameCommand}" Width="100" Margin="5" HorizontalAlignment="Center"/>
+					</StackPanel>
+				</StackPanel>
+			</Viewbox>
+		</DockPanel>
+		<StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+			<TextBox Text="{Binding PlayerOneName}" Margin="5" IsEnabled="{Binding IsPlayerInputEnabled}" Height="30"/>
+			<TextBox Text="{Binding PlayerOnePoint}" Margin="5" IsEnabled="False" Height="30"/>
+			<TextBox Text="{Binding PlayerTwoName}" Margin="5" IsEnabled="{Binding IsPlayerInputEnabled}" Height="30"/>
+			<TextBox Text="{Binding PlayerTwoPoint}" Margin="5" IsEnabled="False" Height="30"/>
+			<!-- <TextBox Text="{Binding BoardSize}" Margin="5" IsEnabled="False" Height="30"/> -->
+			<!-- <TextBox Text="{Binding ButtonSize}" Margin="5" IsEnabled="False" Height="30"/> -->
+		</StackPanel>
+		<Viewbox>
+			<ItemsControl Width="900" Height="900" ItemsSource="{Binding GameBoard}">
+				<!-- egymás melletti mátrix-like design template-ként megadva, hogy alkalmazkodjon -->
+				<!--az mezőket tároló vezérlő-->
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<!-- Use an adaptive UniformGrid -->
+						<UniformGrid Rows="{Binding BoardRows}" Columns="{Binding BoardColumns}" />
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<!-- 1. valamiert nem mukodik -->
+
+						<Button Command="{Binding StepCommand}" CommandParameter="{Binding XY}"
+								
+								Height="{Binding DataContext.ButtonSize, RelativeSource={RelativeSource AncestorType=UserControl}}"
+								Width="{Binding DataContext.ButtonSize, RelativeSource={RelativeSource AncestorType=UserControl}}"
+
+								Classes.IsPlayerOneColor="{Binding IsPlayerOneColor}"
+								Classes.IsPlayerTwoColor="{Binding IsPlayerTwoColor}"
+								Margin="10">
+							<Button.Styles>
+								<Style Selector="Button.IsPlayerOneColor">
+									<Setter	Property="Background" Value="{Binding DataContext.PlayerOneColor, RelativeSource={RelativeSource AncestorType=UserControl}}}" />
+								</Style>
+								<Style Selector="Button.IsPlayerTwoColor">
+									<Setter	Property="Background" Value="{Binding DataContext.PlayerTwoColor, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+								</Style>
+							</Button.Styles>
+						</Button>
+						<!-- <Button>Szia lajos</Button> -->
+						<!--Width="{Binding ButtonSize.Width}" Height="{Binding ButtonSize.Height}" -->
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</Viewbox>
+	</DockPanel>
+	
+	
+</UserControl>
